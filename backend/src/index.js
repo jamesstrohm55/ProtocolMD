@@ -10,8 +10,8 @@ app.use(express.json());
 app.get('/api/health', (_req, res) => res.json({ status: 'ok' }));
 
 app.use('/api/protocols', require('./routes/protocols'));
-// app.use('/api/drugs', require('./routes/drugs'));
-// app.use('/api/dose', require('./routes/dose'));
+app.use('/api/drugs', require('./routes/drugs'));
+app.use('/api/dose', require('./routes/dose'));
 
 if (require.main === module) {
   const PORT = process.env.PORT || 3001;
