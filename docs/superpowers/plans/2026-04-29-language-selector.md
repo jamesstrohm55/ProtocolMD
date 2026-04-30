@@ -6,7 +6,7 @@
 
 **Architecture:** react-i18next with i18next-browser-languagedetector handles detection and persistence. Translation keys live in three JSON locale files imported at bundle time (no async loading). A `<select>` in the NavBar calls `i18next.changeLanguage()` on change. All static UI text is wrapped in `t('key')` calls; dynamic OpenFDA content stays in English as-is.
 
-**Tech Stack:** react-i18next v15, i18next v24, i18next-browser-languagedetector v8, React 19, Vite 5, Tailwind CSS v3
+**Tech Stack:** react-i18next v17, i18next v26, i18next-browser-languagedetector v8, React 19, Vite 5, Tailwind CSS v3
 
 ---
 
