@@ -3,8 +3,8 @@ const { fetchNciDrug } = require('./nciDrugs');
 
 async function getDrugDetail(drugName) {
   const [fda, nci] = await Promise.all([
-    fetchDrugLabel(drugName),
-    fetchNciDrug(drugName)
+    fetchDrugLabel(drugName).catch(() => null),
+    fetchNciDrug(drugName).catch(() => null)
   ]);
 
   if (!fda && !nci) return null;

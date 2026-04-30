@@ -6,6 +6,8 @@ async function fetchDrugLabel(drugName) {
 
   const res = await fetch(url);
   if (!res.ok) return null;
+  const contentType = res.headers.get('content-type') || '';
+  if (!contentType.includes('application/json')) return null;
 
   const data = await res.json();
   if (!data.results || data.results.length === 0) return null;
