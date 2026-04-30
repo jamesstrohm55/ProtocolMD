@@ -1,0 +1,75 @@
+[
+  {
+    "id": "folfox-nccn-crc",
+    "name": "FOLFOX",
+    "tumorSite": "Colorectal",
+    "authority": ["NCCN"],
+    "preferential": true,
+    "cycleLength": 14,
+    "drugs": [
+      { "name": "Oxaliplatin", "dose": 85, "unit": "mg/m2", "day": [1], "route": "IV over 2h" },
+      { "name": "Leucovorin", "dose": 400, "unit": "mg/m2", "day": [1], "route": "IV over 2h" },
+      { "name": "Fluorouracil", "dose": 400, "unit": "mg/m2", "day": [1], "route": "IV bolus" },
+      { "name": "Fluorouracil", "dose": 2400, "unit": "mg/m2", "day": [1, 2], "route": "IV continuous 46h" }
+    ],
+    "supportiveCare": "Antiemetic prophylaxis: 5-HT3 antagonist + dexamethasone on Day 1.",
+    "notes": "Reduce oxaliplatin by 25% for grade 2 sensory neuropathy."
+  },
+  {
+    "id": "ac-dd-nccn-breast",
+    "name": "AC (dose-dense)",
+    "tumorSite": "Breast",
+    "authority": ["NCCN"],
+    "preferential": true,
+    "cycleLength": 14,
+    "drugs": [
+      { "name": "Doxorubicin", "dose": 60, "unit": "mg/m2", "day": [1], "route": "IV bolus" },
+      { "name": "Cyclophosphamide", "dose": 600, "unit": "mg/m2", "day": [1], "route": "IV over 30min" }
+    ],
+    "supportiveCare": "G-CSF support required. Antiemetic: NK1 + 5-HT3 + dexamethasone.",
+    "notes": "Followed by Paclitaxel 175 mg/m2 q2w x4 cycles after AC completion."
+  },
+  {
+    "id": "chop-nccn-dlbcl",
+    "name": "CHOP",
+    "tumorSite": "Lymphoma",
+    "authority": ["NCCN"],
+    "preferential": true,
+    "cycleLength": 21,
+    "drugs": [
+      { "name": "Cyclophosphamide", "dose": 750, "unit": "mg/m2", "day": [1], "route": "IV over 30min" },
+      { "name": "Doxorubicin", "dose": 50, "unit": "mg/m2", "day": [1], "route": "IV bolus" },
+      { "name": "Vincristine", "dose": 1.4, "unit": "mg/m2", "day": [1], "route": "IV bolus", "cap": 2 },
+      { "name": "Prednisone", "dose": 100, "unit": "mg", "day": [1, 2, 3, 4, 5], "route": "PO" }
+    ],
+    "supportiveCare": "Vincristine capped at 2 mg absolute. Antiemetic: 5-HT3 + dexamethasone.",
+    "notes": "Usually given as R-CHOP with Rituximab 375 mg/m2 on Day 1."
+  },
+  {
+    "id": "carbo-pacli-nccn-nsclc",
+    "name": "Carboplatin + Paclitaxel",
+    "tumorSite": "Lung",
+    "authority": ["NCCN", "SBOC"],
+    "preferential": true,
+    "cycleLength": 21,
+    "drugs": [
+      { "name": "Carboplatin", "dose": 6, "unit": "AUC", "day": [1], "route": "IV over 30min" },
+      { "name": "Paclitaxel", "dose": 200, "unit": "mg/m2", "day": [1], "route": "IV over 3h" }
+    ],
+    "supportiveCare": "Premedicate paclitaxel: dexamethasone 20mg + diphenhydramine 50mg + ranitidine 50mg IV.",
+    "notes": "Carboplatin dose by Calvert formula: dose = AUC × (CrCl + 25)."
+  },
+  {
+    "id": "pembrolizumab-sboc-nsclc",
+    "name": "Pembrolizumab",
+    "tumorSite": "Lung",
+    "authority": ["NCCN", "SBOC"],
+    "preferential": true,
+    "cycleLength": 21,
+    "drugs": [
+      { "name": "Pembrolizumab", "dose": 200, "unit": "mg", "day": [1], "route": "IV over 30min" }
+    ],
+    "supportiveCare": "Monitor for immune-related adverse events (irAEs). No routine antiemetic required.",
+    "notes": "First-line monotherapy for PD-L1 TPS ≥ 50% without EGFR/ALK alterations."
+  }
+]

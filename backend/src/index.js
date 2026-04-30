@@ -9,7 +9,7 @@ app.use(express.json());
 
 app.get('/api/health', (_req, res) => res.json({ status: 'ok' }));
 
-// app.use('/api/protocols', require('./routes/protocols'));
+app.use('/api/protocols', require('./routes/protocols'));
 // app.use('/api/drugs', require('./routes/drugs'));
 // app.use('/api/dose', require('./routes/dose'));
 
