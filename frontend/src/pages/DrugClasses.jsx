@@ -1,8 +1,9 @@
 import { Link } from 'react-router-dom'
+import { useTranslation } from 'react-i18next'
 
 const DRUG_CLASSES = [
   {
-    category: 'Chemotherapy',
+    tKey: 'drugClasses.chemotherapy',
     classes: [
       { name: 'Alkylating Agents', examples: ['Cyclophosphamide', 'Ifosfamide', 'Carboplatin', 'Cisplatin', 'Oxaliplatin'] },
       { name: 'Antimetabolites', examples: ['Fluorouracil', 'Capecitabine', 'Gemcitabine', 'Methotrexate', 'Pemetrexed'] },
@@ -13,7 +14,7 @@ const DRUG_CLASSES = [
     ]
   },
   {
-    category: 'Immunotherapy',
+    tKey: 'drugClasses.immunotherapy',
     classes: [
       { name: 'PD-1 Inhibitors', examples: ['Pembrolizumab', 'Nivolumab', 'Cemiplimab'] },
       { name: 'PD-L1 Inhibitors', examples: ['Atezolizumab', 'Durvalumab', 'Avelumab'] },
@@ -21,7 +22,7 @@ const DRUG_CLASSES = [
     ]
   },
   {
-    category: 'Targeted Therapy',
+    tKey: 'drugClasses.targetedTherapy',
     classes: [
       { name: 'EGFR TKIs', examples: ['Erlotinib', 'Gefitinib', 'Osimertinib', 'Afatinib'] },
       { name: 'ALK TKIs', examples: ['Crizotinib', 'Alectinib', 'Lorlatinib'] },
@@ -35,13 +36,15 @@ const DRUG_CLASSES = [
 ]
 
 export default function DrugClasses() {
+  const { t } = useTranslation()
+
   return (
     <div>
-      <h1 className="text-2xl font-bold mb-6">Drug Classes</h1>
+      <h1 className="text-2xl font-bold mb-6">{t('drugClasses.title')}</h1>
       <div className="space-y-8">
         {DRUG_CLASSES.map(cat => (
-          <section key={cat.category}>
-            <h2 className="text-xl font-semibold mb-3 text-clinical-900">{cat.category}</h2>
+          <section key={cat.tKey}>
+            <h2 className="text-xl font-semibold mb-3 text-clinical-900">{t(cat.tKey)}</h2>
             <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
               {cat.classes.map(cls => (
                 <div key={cls.name} className="border rounded-lg p-4 bg-white">
