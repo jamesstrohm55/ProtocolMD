@@ -1,26 +1,18 @@
 const { fetchDrugLabel } = require('./openFDA');
-const { fetchNciDrug } = require('./nciDrugs');
 
 async function getDrugDetail(drugName) {
-  const [fda, nci] = await Promise.all([
-    fetchDrugLabel(drugName).catch(() => null),
-    fetchNciDrug(drugName).catch(() => null)
-  ]);
-
-  if (!fda && !nci) return null;
+  const fda = await fetchDrugLabel(drugName).catch(() => null);
+  if (!fda) return null;
 
   return {
-    genericName: fda?.genericName || drugName.toLowerCase(),
-    brandName: fda?.brandName || null,
-    pharmClass: fda?.pharmClass || null,
-    synonyms: nci?.synonyms || [],
-    definition: nci?.definition || null,
-    nciId: nci?.nciId || null,
-    description: fda?.description || null,
-    dosage: fda?.dosage || null,
-    adverseReactions: fda?.adverseReactions || null,
-    contraindications: fda?.contraindications || null,
-    warnings: fda?.warnings || null
+    genericName: fda.genericName,
+    brandName: fda.brandName,
+    pharmClass: fda.pharmClass,
+    description: fda.description,
+    dosage: fda.dosage,
+    adverseReactions: fda.adverseReactions,
+    contraindications: fda.contraindications,
+    warnings: fda.warnings
   };
 }
 

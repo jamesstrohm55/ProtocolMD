@@ -7,6 +7,7 @@ describe('fetchDrugLabel', () => {
   it('returns parsed label fields for a valid drug', async () => {
     global.fetch.mockResolvedValueOnce({
       ok: true,
+      headers: { get: () => 'application/json' },
       json: async () => ({
         results: [{
           openfda: {

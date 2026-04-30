@@ -13,15 +13,6 @@ jest.mock('../src/services/openFDA', () => ({
   })
 }));
 
-jest.mock('../src/services/nciDrugs', () => ({
-  fetchNciDrug: jest.fn().mockResolvedValue({
-    name: 'Fluorouracil',
-    synonyms: ['5-FU'],
-    definition: 'Antineoplastic antimetabolite.',
-    nciId: 'C505'
-  })
-}));
-
 describe('Drugs API', () => {
   let app;
   beforeAll(() => { app = require('../src/index'); });
@@ -38,12 +29,12 @@ describe('Drugs API', () => {
     expect(res.status).toBe(400);
   });
 
-  it('GET /api/drugs/:name returns merged drug detail', async () => {
+  it('GET /api/drugs/:name returns drug detail', async () => {
     const res = await request(app).get('/api/drugs/fluorouracil');
     expect(res.status).toBe(200);
     expect(res.body.genericName).toBe('fluorouracil');
-    expect(res.body.synonyms).toContain('5-FU');
-    expect(res.body.definition).toBeTruthy();
+    expect(res.body.pharmClass).toBeTruthy();
     expect(res.body.dosage).toBeTruthy();
+    expect(res.body.adverseReactions).toBeTruthy();
   });
 });
