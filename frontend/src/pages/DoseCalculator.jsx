@@ -1,9 +1,11 @@
 import { useState } from 'react'
 import { useSearchParams } from 'react-router-dom'
 import { useQuery, useMutation } from '@tanstack/react-query'
+import { useTranslation } from 'react-i18next'
 import { api } from '../lib/api'
 
 export default function DoseCalculator() {
+  const { t } = useTranslation()
   const [searchParams] = useSearchParams()
   const [form, setForm] = useState({
     heightCm: '',
@@ -36,17 +38,19 @@ export default function DoseCalculator() {
 
   const isComplete = form.heightCm && form.weightKg && form.age && form.creatinineMgDl && form.protocolId
 
+  const fields = [
+    { label: t('dose.height'), name: 'heightCm', placeholder: '170' },
+    { label: t('dose.weight'), name: 'weightKg', placeholder: '70' },
+    { label: t('dose.age'), name: 'age', placeholder: '50' },
+    { label: t('dose.creatinine'), name: 'creatinineMgDl', placeholder: '1.0', step: '0.1' }
+  ]
+
   return (
     <div className="max-w-2xl">
-      <h1 className="text-2xl font-bold mb-6">Dose Calculator</h1>
+      <h1 className="text-2xl font-bold mb-6">{t('dose.title')}</h1>
       <form onSubmit={e => { e.preventDefault(); calculate() }} className="space-y-4 bg-white border rounded-lg p-6">
         <div className="grid grid-cols-2 gap-4">
-          {[
-            { label: 'Height (cm)', name: 'heightCm', placeholder: '170' },
-            { label: 'Weight (kg)', name: 'weightKg', placeholder: '70' },
-            { label: 'Age', name: 'age', placeholder: '50' },
-            { label: 'Creatinine (mg/dL)', name: 'creatinineMgDl', placeholder: '1.0', step: '0.1' }
-          ].map(({ label, name, placeholder, step }) => (
+          {fields.map(({ label, name, placeholder, step }) => (
             <label key={name} className="block">
               <span className="text-sm font-medium text-gray-700">{label}</span>
               <input type="number" name={name} value={form[name]} onChange={handleChange} placeholder={placeholder} step={step}
@@ -54,16 +58,16 @@ export default function DoseCalculator() {
             </label>
           ))}
           <label className="block">
-            <span className="text-sm font-medium text-gray-700">Sex</span>
+            <span className="text-sm font-medium text-gray-700">{t('dose.sex')}</span>
             <select name="sex" value={form.sex} onChange={handleChange} className="mt-1 block w-full border rounded px-3 py-2 text-sm">
-              <option value="M">Male</option>
-              <option value="F">Female</option>
+              <option value="M">{t('dose.male')}</option>
+              <option value="F">{t('dose.female')}</option>
             </select>
           </label>
           <label className="block">
-            <span className="text-sm font-medium text-gray-700">Protocol</span>
+            <span className="text-sm font-medium text-gray-700">{t('dose.protocol')}</span>
             <select name="protocolId" value={form.protocolId} onChange={handleChange} className="mt-1 block w-full border rounded px-3 py-2 text-sm">
-              <option value="">Select protocol...</option>
+              <option value="">{t('dose.selectProtocol')}</option>
               {protocols?.map(p => (
                 <option key={p.id} value={p.id}>{p.name} ({p.tumorSite})</option>
               ))}
@@ -72,11 +76,11 @@ export default function DoseCalculator() {
         </div>
         <button type="submit" disabled={!isComplete || isPending}
           className="w-full bg-clinical-700 text-white py-2 rounded hover:bg-clinical-900 disabled:opacity-50 text-sm font-medium">
-          {isPending ? 'Calculating...' : 'Calculate Doses'}
+          {isPending ? t('dose.calculating') : t('dose.calculateDoses')}
         </button>
       </form>
 
-      {error && <p className="mt-4 text-red-600 text-sm">Calculation failed. Check all fields.</p>}
+      {error && <p className="mt-4 text-red-600 text-sm">{t('dose.calcError')}</p>}
 
       {result && (
         <div className="mt-6 bg-white border rounded-lg p-6">
@@ -89,10 +93,10 @@ export default function DoseCalculator() {
             <table className="w-full text-sm">
               <thead className="bg-gray-50 border-b">
                 <tr>
-                  <th className="text-left px-4 py-2">Drug</th>
-                  <th className="text-left px-4 py-2">Prescribed</th>
-                  <th className="text-left px-4 py-2">Calculated</th>
-                  <th className="text-left px-4 py-2">Note</th>
+                  <th className="text-left px-4 py-2">{t('protocols.drug')}</th>
+                  <th className="text-left px-4 py-2">{t('dose.prescribed')}</th>
+                  <th className="text-left px-4 py-2">{t('dose.calculated')}</th>
+                  <th className="text-left px-4 py-2">{t('dose.note')}</th>
                 </tr>
               </thead>
               <tbody>
@@ -107,9 +111,7 @@ export default function DoseCalculator() {
               </tbody>
             </table>
           </div>
-          <p className="text-xs text-gray-400 mt-3">
-            For reference only. All doses must be verified by a licensed oncologist before administration.
-          </p>
+          <p className="text-xs text-gray-400 mt-3">{t('dose.disclaimer')}</p>
         </div>
       )}
     </div>
