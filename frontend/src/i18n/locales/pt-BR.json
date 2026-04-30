@@ -1,0 +1,96 @@
+{
+  "nav": {
+    "home": "Início",
+    "protocols": "Protocolos",
+    "drugs": "Fármacos",
+    "doseCalc": "Calc. de Dose",
+    "drugClasses": "Classes de Fármacos"
+  },
+  "home": {
+    "subtitle": "Referência de protocolos oncológicos e cálculo de dose para clínicos. Diretrizes SBOC e NCCN em um só lugar.",
+    "disclaimer": "Apenas para referência clínica. Todas as decisões de tratamento devem ser tomadas por profissionais de saúde habilitados.",
+    "features": {
+      "protocols": {
+        "title": "Navegador de Protocolos",
+        "desc": "Navegue pelos regimes preferenciais SBOC e NCCN por sítio tumoral."
+      },
+      "drugs": {
+        "title": "Referência de Fármacos",
+        "desc": "Pesquise quimioterapia, imunoterapia e fármacos-alvo por nome."
+      },
+      "dose": {
+        "title": "Calculadora de Dose",
+        "desc": "Calcule doses baseadas em SC e AUC a partir dos parâmetros do paciente."
+      },
+      "classes": {
+        "title": "Classes de Fármacos",
+        "desc": "Explore por classe: agentes alquilantes, inibidores de checkpoint, TKIs e mais."
+      }
+    }
+  },
+  "protocols": {
+    "title": "Navegador de Protocolos",
+    "tumorSite": "Sítio Tumoral",
+    "authority": "Autoridade",
+    "loading": "Carregando protocolos...",
+    "loadError": "Falha ao carregar protocolos.",
+    "noResults": "Nenhum protocolo corresponde aos filtros selecionados.",
+    "notFound": "Protocolo não encontrado.",
+    "backToProtocols": "← Voltar aos Protocolos",
+    "cycleLength": "Ciclo de {{days}} dias",
+    "regimen": "Regime",
+    "drug": "Fármaco",
+    "dose": "Dose",
+    "route": "Via",
+    "days": "Dia(s)",
+    "day": "Dia",
+    "supportiveCare": "Cuidados de Suporte",
+    "notes": "Notas",
+    "calcDose": "Calcular Dose para Este Protocolo →"
+  },
+  "drugs": {
+    "searchTitle": "Pesquisa de Fármacos",
+    "searchPlaceholder": "Pesquisar por nome genérico (ex.: oxaliplatina)",
+    "searching": "Pesquisando...",
+    "searchError": "Pesquisa falhou. Verifique se o backend está em execução.",
+    "noResults": "Sem resultados para \"{{query}}\". Tente o nome genérico.",
+    "loading": "Carregando dados do fármaco...",
+    "notFound": "Fármaco não encontrado ou dados indisponíveis.",
+    "backToSearch": "← Voltar à Pesquisa de Fármacos",
+    "definition": "Definição",
+    "description": "Descrição",
+    "dosing": "Posologia",
+    "adverseReactions": "Reações Adversas",
+    "contraindications": "Contraindicações",
+    "warnings": "Advertências"
+  },
+  "dose": {
+    "title": "Calculadora de Dose",
+    "height": "Altura (cm)",
+    "weight": "Peso (kg)",
+    "age": "Idade",
+    "creatinine": "Creatinina (mg/dL)",
+    "sex": "Sexo",
+    "male": "Masculino",
+    "female": "Feminino",
+    "protocol": "Protocolo",
+    "selectProtocol": "Selecionar protocolo...",
+    "calculating": "Calculando...",
+    "calculateDoses": "Calcular Doses",
+    "calcError": "Erro no cálculo. Verifique todos os campos.",
+    "prescribed": "Prescrita",
+    "calculated": "Calculada",
+    "note": "Nota",
+    "disclaimer": "Apenas para referência. Todas as doses devem ser verificadas por um oncologista habilitado antes da administração."
+  },
+  "drugClasses": {
+    "title": "Classes de Fármacos",
+    "chemotherapy": "Quimioterapia",
+    "immunotherapy": "Imunoterapia",
+    "targetedTherapy": "Terapia-Alvo"
+  },
+  "common": {
+    "loading": "Carregando...",
+    "all": "Todos"
+  }
+}

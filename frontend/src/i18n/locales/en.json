@@ -1,0 +1,96 @@
+{
+  "nav": {
+    "home": "Home",
+    "protocols": "Protocols",
+    "drugs": "Drugs",
+    "doseCalc": "Dose Calc",
+    "drugClasses": "Drug Classes"
+  },
+  "home": {
+    "subtitle": "Oncology protocol reference and dose calculation for clinicians. SBOC and NCCN guidelines in one place.",
+    "disclaimer": "For clinical reference only. All treatment decisions must be made by licensed healthcare providers.",
+    "features": {
+      "protocols": {
+        "title": "Protocol Browser",
+        "desc": "Browse SBOC and NCCN preferential regimens by tumor site."
+      },
+      "drugs": {
+        "title": "Drug Reference",
+        "desc": "Search chemotherapy, immunotherapy, and targeted drugs by name."
+      },
+      "dose": {
+        "title": "Dose Calculator",
+        "desc": "Calculate BSA-based and AUC-based doses from patient parameters."
+      },
+      "classes": {
+        "title": "Drug Classes",
+        "desc": "Explore by class: alkylating agents, checkpoint inhibitors, TKIs, and more."
+      }
+    }
+  },
+  "protocols": {
+    "title": "Protocol Browser",
+    "tumorSite": "Tumor Site",
+    "authority": "Authority",
+    "loading": "Loading protocols...",
+    "loadError": "Failed to load protocols.",
+    "noResults": "No protocols match selected filters.",
+    "notFound": "Protocol not found.",
+    "backToProtocols": "← Back to Protocols",
+    "cycleLength": "{{days}}-day cycle",
+    "regimen": "Regimen",
+    "drug": "Drug",
+    "dose": "Dose",
+    "route": "Route",
+    "days": "Day(s)",
+    "day": "Day",
+    "supportiveCare": "Supportive Care",
+    "notes": "Notes",
+    "calcDose": "Calculate Dose for This Protocol →"
+  },
+  "drugs": {
+    "searchTitle": "Drug Search",
+    "searchPlaceholder": "Search by generic name (e.g. oxaliplatin)",
+    "searching": "Searching...",
+    "searchError": "Search failed. Check backend is running.",
+    "noResults": "No results for \"{{query}}\". Try the generic name.",
+    "loading": "Loading drug data...",
+    "notFound": "Drug not found or data unavailable.",
+    "backToSearch": "← Back to Drug Search",
+    "definition": "Definition",
+    "description": "Description",
+    "dosing": "Dosing",
+    "adverseReactions": "Adverse Reactions",
+    "contraindications": "Contraindications",
+    "warnings": "Warnings"
+  },
+  "dose": {
+    "title": "Dose Calculator",
+    "height": "Height (cm)",
+    "weight": "Weight (kg)",
+    "age": "Age",
+    "creatinine": "Creatinine (mg/dL)",
+    "sex": "Sex",
+    "male": "Male",
+    "female": "Female",
+    "protocol": "Protocol",
+    "selectProtocol": "Select protocol...",
+    "calculating": "Calculating...",
+    "calculateDoses": "Calculate Doses",
+    "calcError": "Calculation failed. Check all fields.",
+    "prescribed": "Prescribed",
+    "calculated": "Calculated",
+    "note": "Note",
+    "disclaimer": "For reference only. All doses must be verified by a licensed oncologist before administration."
+  },
+  "drugClasses": {
+    "title": "Drug Classes",
+    "chemotherapy": "Chemotherapy",
+    "immunotherapy": "Immunotherapy",
+    "targetedTherapy": "Targeted Therapy"
+  },
+  "common": {
+    "loading": "Loading...",
+    "all": "All"
+  }
+}
