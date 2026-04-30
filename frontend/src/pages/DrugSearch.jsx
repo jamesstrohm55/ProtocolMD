@@ -1,10 +1,12 @@
 import { useState } from 'react'
 import { useSearchParams, Link } from 'react-router-dom'
 import { useQuery } from '@tanstack/react-query'
+import { useTranslation } from 'react-i18next'
 import { api } from '../lib/api'
 import SearchBar from '../components/SearchBar'
 
 export default function DrugSearch() {
+  const { t } = useTranslation()
   const [searchParams, setSearchParams] = useSearchParams()
   const q = searchParams.get('q') || ''
   const [query, setQuery] = useState(q)
@@ -22,14 +24,14 @@ export default function DrugSearch() {
 
   return (
     <div>
-      <h1 className="text-2xl font-bold mb-4">Drug Search</h1>
+      <h1 className="text-2xl font-bold mb-4">{t('drugs.searchTitle')}</h1>
       <div className="max-w-xl mb-6">
-        <SearchBar placeholder="Search by generic name (e.g. oxaliplatin)" defaultValue={q} onSearch={handleSearch} />
+        <SearchBar placeholder={t('drugs.searchPlaceholder')} defaultValue={q} onSearch={handleSearch} />
       </div>
-      {isLoading && <p className="text-gray-500">Searching...</p>}
-      {error && <p className="text-red-600">Search failed. Check backend is running.</p>}
+      {isLoading && <p className="text-gray-500">{t('drugs.searching')}</p>}
+      {error && <p className="text-red-600">{t('drugs.searchError')}</p>}
       {results && results.length === 0 && query && (
-        <p className="text-gray-500">No results for "{query}". Try the generic name.</p>
+        <p className="text-gray-500">{t('drugs.noResults', { query })}</p>
       )}
       {results && results.length > 0 && (
         <div className="grid gap-3 sm:grid-cols-2">
