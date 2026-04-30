@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useMemo } from 'react'
 import { useSearchParams } from 'react-router-dom'
 import { useQuery, useMutation } from '@tanstack/react-query'
 import { useTranslation } from 'react-i18next'
@@ -38,12 +38,12 @@ export default function DoseCalculator() {
 
   const isComplete = form.heightCm && form.weightKg && form.age && form.creatinineMgDl && form.protocolId
 
-  const fields = [
+  const fields = useMemo(() => [
     { label: t('dose.height'), name: 'heightCm', placeholder: '170' },
     { label: t('dose.weight'), name: 'weightKg', placeholder: '70' },
     { label: t('dose.age'), name: 'age', placeholder: '50' },
     { label: t('dose.creatinine'), name: 'creatinineMgDl', placeholder: '1.0', step: '0.1' }
-  ]
+  ], [t])
 
   return (
     <div className="max-w-2xl">
