@@ -31,7 +31,7 @@ export default function NavBar() {
           ))}
           <select
             aria-label="Select language"
-            value={i18n.language}
+            value={i18n.resolvedLanguage}
             onChange={e => i18n.changeLanguage(e.target.value)}
             className="border border-clinical-700 bg-clinical-900 text-white rounded px-2 py-0.5 text-sm cursor-pointer hover:border-clinical-400 transition-colors"
           >

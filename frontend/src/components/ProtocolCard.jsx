@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom'
+import { useTranslation } from 'react-i18next'
 
 const authorityColor = {
   NCCN: 'bg-blue-100 text-blue-800',
@@ -6,6 +7,7 @@ const authorityColor = {
 }
 
 export default function ProtocolCard({ protocol }) {
+  const { t } = useTranslation()
   return (
     <Link
       to={`/protocols/${protocol.id}`}
@@ -14,7 +16,7 @@ export default function ProtocolCard({ protocol }) {
       <div className="flex items-start justify-between gap-2">
         <div>
           <h3 className="font-semibold text-gray-900">{protocol.name}</h3>
-          <p className="text-sm text-gray-500">{protocol.tumorSite} · {protocol.cycleLength}-day cycle</p>
+          <p className="text-sm text-gray-500">{protocol.tumorSite} · {t('protocols.cycleLength', { days: protocol.cycleLength })}</p>
         </div>
         <div className="flex gap-1 flex-shrink-0">
           {protocol.authority.map(a => (

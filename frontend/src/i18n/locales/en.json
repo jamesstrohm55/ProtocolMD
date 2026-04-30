@@ -91,6 +91,8 @@
   },
   "common": {
     "loading": "Loading...",
-    "all": "All"
+    "all": "All",
+    "search": "Search",
+    "searchPlaceholder": "Search drugs..."
   }
 }

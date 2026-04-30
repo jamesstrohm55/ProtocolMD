@@ -1,7 +1,9 @@
 import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
+import { useTranslation } from 'react-i18next'
 
-export default function SearchBar({ placeholder = 'Search drugs...', onSearch, defaultValue = '' }) {
+export default function SearchBar({ placeholder, onSearch, defaultValue = '' }) {
+  const { t } = useTranslation()
   const [value, setValue] = useState(defaultValue)
   const navigate = useNavigate()
 
@@ -21,11 +23,11 @@ export default function SearchBar({ placeholder = 'Search drugs...', onSearch, d
         type="text"
         value={value}
         onChange={e => setValue(e.target.value)}
-        placeholder={placeholder}
+        placeholder={placeholder ?? t('common.searchPlaceholder')}
         className="flex-1 border rounded px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-clinical-500"
       />
       <button type="submit" className="bg-clinical-700 text-white px-4 py-2 rounded text-sm hover:bg-clinical-900">
-        Search
+        {t('common.search')}
       </button>
     </form>
   )

@@ -91,6 +91,8 @@
   },
   "common": {
     "loading": "Cargando...",
-    "all": "Todos"
+    "all": "Todos",
+    "search": "Buscar",
+    "searchPlaceholder": "Buscar fármacos..."
   }
 }
